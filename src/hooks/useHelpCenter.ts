@@ -30,7 +30,7 @@ export default function () {
         await Promise.all(
             results.results.map(async (result: { title: string; html_url: string; section_id: number }) => {
                 const title = result.title;
-                const url = "https://help.figma.com" + result.html_url;
+                const url = result.html_url;
                 const category = await getSectionName(result.section_id);
                 searchList.push({ title, url, category });
             }),
